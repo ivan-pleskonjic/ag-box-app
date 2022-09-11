@@ -1,0 +1,10 @@
+<header class="header">
+  <h1 class="title" [routerLink]="''">{{ title }}</h1>
+
+  <span *ngIf="!(currentUser$ | async)" class="login" (click)="onLoginClicked()">Login</span>
+
+  <div class="user-info" *ngIf="currentUser$ | async as user">
+    <span>{{ user.user.name }}</span>
+    <small class="amount">({{ user.walletSum | number: '1.2-2' }})</small>
+  </div>
+</header>

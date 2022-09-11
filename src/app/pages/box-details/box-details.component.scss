@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+$details-padding: 1rem;
+
+.details {
+  background-color: #fff;
+  padding: $details-padding;
+
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  .image {
+    @include image;
+  }
+
+  .info {
+    padding-left: 1rem;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .open {
+      width: 10rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .details {
+    height: calc(100vh - 2 * $details-padding - $header-height);
+
+    .info > h1 {
+      margin-top: 0;
+    }
+
+    .buttons {
+      flex-direction: column;
+
+      .open {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

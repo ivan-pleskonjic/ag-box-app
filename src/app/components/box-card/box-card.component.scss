@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+
+.card {
+  .title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 1rem 0 0.2rem 0;
+  }
+
+  background-color: #fff;
+  border-radius: 20px;
+  height: 16rem;
+  width: 16rem;
+  margin: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  .image {
+    @include image;
+    align-self: center;
+    cursor: pointer;
+  }
+}

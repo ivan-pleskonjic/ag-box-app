@@ -1,0 +1,23 @@
+<div class="details">
+  <img class="image" [src]="box.iconUrl" alt="Box image unavailable" />
+  <div class="info">
+    <h1>{{ box.name }}</h1>
+
+    <p *ngIf="!boxOpenings && !loading">Dummy box description to fill the empty space</p>
+    <div class="buttons">
+      <button class="btn cancel" [routerLink]="''">BACK</button>
+      <button *ngIf="!boxOpenings && !loading" class="btn open" (click)="open()">
+        OPEN FOR {{ box.cost | currency }}
+      </button>
+    </div>
+
+    <app-spinner *ngIf="loading"></app-spinner>
+
+    <ng-container *ngIf="boxOpenings && !loading">
+      <p>You got the following items from inside of {{ box.name }}:</p>
+      <div *ngFor="let opening of boxOpenings">
+        <p>{{ opening.itemVariant.name }} - {{ opening.itemVariant.value | currency }}</p>
+      </div>
+    </ng-container>
+  </div>
+</div>

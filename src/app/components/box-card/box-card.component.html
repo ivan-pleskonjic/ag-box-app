@@ -1,0 +1,7 @@
+<div class="card">
+  <img class="image" [src]="box.iconUrl" alt="Box image unavailable" (click)="onBoxClicked()" />
+
+  <p class="title">{{ box.name }}</p>
+
+  <span>{{ box.cost | currency }}</span>
+</div>

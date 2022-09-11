@@ -1,0 +1,49 @@
+<ng-container *ngIf="display$ | async as display">
+  <section [class.open]="display === open">
+    <div>
+      <h2>Login</h2>
+      <form [formGroup]="form">
+        <div class="form-control">
+          <label class="form-label">Email</label>
+          <input
+            type="text"
+            [ngClass]="{
+              invalid: !form.controls['email'].valid && form.controls['email'].touched
+            }"
+            autocomplete="off"
+            formControlName="email" />
+
+          <small
+            [ngClass]="{
+              hidden: form.controls['email'].valid || !form.controls['email'].touched
+            }"
+            class="error">
+            Email is required
+          </small>
+        </div>
+        <div class="form-control">
+          <label class="form-label">Password</label>
+          <input
+            type="text"
+            [ngClass]="{
+              invalid: !form.controls['password'].valid && form.controls['password'].touched
+            }"
+            autocomplete="off"
+            formControlName="password" />
+
+          <small
+            [ngClass]="{
+              hidden: form.controls['password'].valid || !form.controls['password'].touched
+            }"
+            class="error">
+            Password is required
+          </small>
+        </div>
+      </form>
+      <div class="actions">
+        <button class="btn cancel" (click)="close()">Cancel</button>
+        <button class="btn" [disabled]="!form.valid" (click)="login()">Login</button>
+      </div>
+    </div>
+  </section>
+</ng-container>

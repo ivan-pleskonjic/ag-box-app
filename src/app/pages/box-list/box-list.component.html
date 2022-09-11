@@ -1,0 +1,1 @@
+<app-box-card *ngFor="let box of boxes$ | async" [box]="box.node" (boxClicked)="onBoxClicked(box.node)"></app-box-card>
